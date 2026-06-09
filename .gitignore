@@ -1,0 +1,63 @@
+# =========================
+# Unreal Engine generated folders
+# =========================
+Binaries/
+Build/
+Intermediate/
+Saved/
+DerivedDataCache/
+FileOpenOrder/
+
+**/Binaries/
+**/Build/
+**/Intermediate/
+**/Saved/
+**/DerivedDataCache/
+**/FileOpenOrder/
+
+# Extra Unreal noise
+**/Saved/Logs/
+**/Saved/Autosaves/
+**/DerivedDataCache/*
+
+# =========================
+# Project files (IDE / tooling)
+# =========================
+.vs/
+.vscode/
+*.sln
+*.user
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+
+# Rider / JetBrains
+.idea/
+*.DotSettings
+
+# =========================
+# Compiled code / binaries
+# =========================
+*.pdb
+*.exp
+*.lib
+*.dll
+*.exe
+
+# =========================
+# Unreal packaged builds
+# =========================
+*.pak
+*.sig
+
+# =========================
+# OS junk
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Unreal project local files
+# =========================
+*.log
