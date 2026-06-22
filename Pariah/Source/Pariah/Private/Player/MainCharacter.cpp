@@ -7,6 +7,7 @@
 #include "EnhancedInputComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "PlayerInteractionComponent.h"
 
 // Sets default values
 AMainCharacter::AMainCharacter()
@@ -17,6 +18,9 @@ AMainCharacter::AMainCharacter()
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Player Camera"));
 	Camera->SetupAttachment(RootComponent);
 	Camera->bUsePawnControlRotation = true;
+	Camera->bUsePawnControlRotation = true;
+
+	InteractionComponent = CreateDefaultSubobject<UPlayerInteractionComponent>(TEXT("InteractionComponent"));
 }
 
 // Called when the game starts or when spawned
@@ -140,5 +144,7 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 		EnhancedInputComponent -> BindAction(JumpAction, ETriggerEvent::Started, this, &AMainCharacter::OnJump);
 		
 		EnhancedInputComponent -> BindAction(LookAction, ETriggerEvent::Triggered, this, &AMainCharacter::OnLook);
+		
+		EnhancedInputComponent -> BindAction(Interact, ETriggerEvent::Started, InteractionComponent, &UPlayerInteractionComponent::TryInteract);
 	}
 }
