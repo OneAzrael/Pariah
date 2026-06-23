@@ -98,7 +98,10 @@ void AMainCharacter::OnLook(const FInputActionValue& Value)
 	}
 }
 
-
+void AMainCharacter::OnInteract()
+{
+	
+}
 
 // Called every frame
 void AMainCharacter::Tick(float DeltaTime)

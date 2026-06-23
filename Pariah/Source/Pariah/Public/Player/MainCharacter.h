@@ -78,7 +78,6 @@ protected:
 	
 	void OnLook(const FInputActionValue& Value);
 	
-	
 	// Camera
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Camera)
 	class UCameraComponent* Camera;
@@ -86,6 +85,8 @@ protected:
 	// Interact Input
 	UPROPERTY(EditAnywhere, Category = Input)
 	UInputAction* Interact;
+	
+	void OnInteract();
 
 	// Interaction logic lives in this component
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Interaction)
