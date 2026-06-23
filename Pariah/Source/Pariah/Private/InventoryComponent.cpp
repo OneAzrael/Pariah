@@ -23,6 +23,8 @@ bool UInventoryComponent::TryAddItem(FName ItemID, int32 Quantity, bool bIsStack
         FInventorySlot& NewSlot = Slots.AddDefaulted_GetRef();
 		NewSlot.ItemId = ItemID;
 		NewSlot.Quantity = Quantity;
+		NewSlot.bIsStackable = bIsStackable; // missing this
+
 	
 	OnInventoryChanged.Broadcast();
 	return true;
