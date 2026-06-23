@@ -9,6 +9,7 @@
 
 class UInputMappingContext;
 class UInputAction;
+class UPlayerInteractionComponent;
 
 UCLASS()
 class PARIAH_API AMainCharacter : public ACharacter
@@ -87,8 +88,12 @@ protected:
 	
 	void OnInteract();
 
-	
+	// Interaction logic lives in this component
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Interaction)
+	UPlayerInteractionComponent* InteractionComponent;
+
 public:	
+	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	
