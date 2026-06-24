@@ -8,6 +8,8 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "PlayerInteractionComponent.h"
+#include "InventoryComponent.h"
+
 
 // Sets default values
 AMainCharacter::AMainCharacter()

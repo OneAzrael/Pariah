@@ -48,6 +48,9 @@ bool UInventoryComponent::TryRemoveItem(FName ItemID, int32 Quantity)
 
 bool UInventoryComponent::HasItem(FName ItemID, int32 Quantity) const
 {
+	// First we find the name of the id
+	// If it doesnt exist we exit
+	// If true we show the ammount
 	int32 Index = FindSlotIndex(ItemID);
 	if (Index == INDEX_NONE) return false;
 	return Slots[Index].Quantity >= Quantity;
@@ -55,6 +58,7 @@ bool UInventoryComponent::HasItem(FName ItemID, int32 Quantity) const
 
 int32 UInventoryComponent::FindSlotIndex(FName ItemID) const
 {
+	//Simple for loop
 	for (int32 i = 0; i < Slots.Num(); ++i)
 	{
 		if (Slots[i].ItemId == ItemID)
@@ -65,6 +69,11 @@ int32 UInventoryComponent::FindSlotIndex(FName ItemID) const
 
 void UInventoryComponent::DebugPrintInventory()
 {
+	
+	// Shows Item id first then the ammount
+	// 1 x 2
+	// ItemID 1, Quanitiy 2 happens only on pickup
+	
 	GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Green, TEXT("=== INVENTORY ==="));
 	for (const FInventorySlot& Slot : Slots)
 	{
@@ -72,6 +81,7 @@ void UInventoryComponent::DebugPrintInventory()
 		GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Yellow, Line);
 	}
 }
+
 
 void UInventoryComponent::BeginPlay()
 {
