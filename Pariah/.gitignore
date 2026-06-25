@@ -25,7 +25,6 @@ FileOpenOrder/
 # =========================
 .vs/
 .vscode/
-*.sln
 *.user
 *.suo
 *.opensdf
