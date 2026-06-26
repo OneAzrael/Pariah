@@ -8,6 +8,8 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "PlayerInteractionComponent.h"
+#include "InventoryComponent.h"
+
 
 // Sets default values
 AMainCharacter::AMainCharacter()
@@ -98,7 +100,10 @@ void AMainCharacter::OnLook(const FInputActionValue& Value)
 	}
 }
 
-
+void AMainCharacter::OnInteract()
+{
+	
+}
 
 // Called every frame
 void AMainCharacter::Tick(float DeltaTime)

@@ -3,6 +3,8 @@
 
 #include "InteractableBase.h"
 
+#include "InventoryComponent.h"
+
 UInteractableBase::UInteractableBase()
 {
 	PrimaryComponentTick.bCanEverTick = false; // no per-frame work needed
@@ -24,5 +26,12 @@ bool UInteractableBase::CanInteract_Implementation() const
 
 void UInteractableBase::HandleInteract(AActor* Interactor)
 {
-	// Base does nothing. Subclasses (door, pickup, inspectable) fill this in.
+	if (bIsPickup)
+	{
+		UInventoryComponent* Inventory = Interactor->FindComponentByClass<UInventoryComponent>();
+		if (Inventory && Inventory->TryAddItem(ItemID, Quantity, bIsStackable))
+		{
+			GetOwner()->Destroy();
+		}
+	}
 }

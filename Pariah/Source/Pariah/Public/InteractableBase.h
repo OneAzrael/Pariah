@@ -39,6 +39,18 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Interaction")
 	bool bIsEnabled = true;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Pickup")
+	bool bIsPickup = false;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Pickup", meta=(EditCondition="bIsPickup"))
+	bool bIsStackable = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Pickup", meta=(EditCondition="bIsPickup"))
+	FName ItemID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Pickup", meta=(EditCondition="bIsPickup"))
+	int32 Quantity = 1;
 
 protected:
 	// Subclass-specific. Base does nothing; subclasses override.
