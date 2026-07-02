@@ -10,6 +10,7 @@
 class UInputMappingContext;
 class UInputAction;
 class UPlayerInteractionComponent;
+class UNarrationWidget;
 
 UCLASS()
 class PARIAH_API AMainCharacter : public ACharacter
@@ -92,6 +93,14 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Interaction)
 	UPlayerInteractionComponent* InteractionComponent;
 
+	// The narration widget class to spawn (assign WBP_Narration in the editor)
+	UPROPERTY(EditDefaultsOnly, Category = Narration)
+	TSubclassOf<UNarrationWidget> NarrationWidgetClass;
+	
+	// The live instance
+	UPROPERTY()
+	TObjectPtr<UNarrationWidget> NarrationWidget;
+	
 public:	
 	
 	// Called every frame
