@@ -108,6 +108,8 @@ public:
 	
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UFUNCTION(BlueprintCallable, Category = Narration)
+	void ShowNarration(const FText& Line);
 	
 private:
 	

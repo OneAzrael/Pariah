@@ -49,6 +49,14 @@ void AMainCharacter::BeginPlay()
 	}
 }
 
+void AMainCharacter::ShowNarration(const FText& Line)
+{
+	if (NarrationWidget)
+	{
+		NarrationWidget->ShowLine(Line);
+	}
+}
+
 // Movement Input
 
 void AMainCharacter::OnMoveForward(const FInputActionValue& Value)
