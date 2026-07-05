@@ -9,7 +9,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "PlayerInteractionComponent.h"
 #include "InventoryComponent.h"
-
+#include "NarrationWidget.h"
 
 // Sets default values
 AMainCharacter::AMainCharacter()
@@ -38,6 +38,23 @@ void AMainCharacter::BeginPlay()
 		}
 	}
 	
+	if (NarrationWidgetClass)
+	{
+		NarrationWidget = CreateWidget<UNarrationWidget>(GetWorld(), NarrationWidgetClass);
+		if (NarrationWidget)
+		{
+			NarrationWidget->AddToViewport();
+			NarrationWidget->ShowLine(FText::FromString(TEXT("Where am I... what happened?")));
+		}
+	}
+}
+
+void AMainCharacter::ShowNarration(const FText& Line)
+{
+	if (NarrationWidget)
+	{
+		NarrationWidget->ShowLine(Line);
+	}
 }
 
 // Movement Input
