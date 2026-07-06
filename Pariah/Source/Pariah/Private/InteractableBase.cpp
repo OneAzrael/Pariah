@@ -12,7 +12,7 @@ UInteractableBase::UInteractableBase()
 
 void UInteractableBase::Interact(AActor* Interactor)
 {
-	if (!bIsEnabled)        return;   // turned off
+	if (!bIsEnabled)        return;   // turned off3
 	if (!CanInteract())     return;   // condition not met (e.g. door locked)
 
 	HandleInteract(Interactor);       // type-specific C++ behaviour
