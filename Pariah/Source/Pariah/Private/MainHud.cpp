@@ -5,6 +5,7 @@ void AMainHud::BeginPlay()
 {
 	Super::BeginPlay();
 	ShowMainMenu();
+	ShowInventory();
 }
 
 UUserWidget* AMainHud::CreateOrGetWidget(TObjectPtr<UUserWidget>& Widget, TSubclassOf<UUserWidget> WidgetClass)

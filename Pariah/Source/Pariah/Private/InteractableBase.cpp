@@ -28,8 +28,9 @@ void UInteractableBase::HandleInteract(AActor* Interactor)
 {
 	if (bIsPickup)
 	{
+		
 		UInventoryComponent* Inventory = Interactor->FindComponentByClass<UInventoryComponent>();
-		if (Inventory && Inventory->TryAddItem(ItemID, Quantity, bIsStackable))
+		if (Inventory && Inventory->TryAddItem(ItemID, Quantity, bIsStackable, ItemIcon))
 		{
 			GetOwner()->Destroy();
 		}
