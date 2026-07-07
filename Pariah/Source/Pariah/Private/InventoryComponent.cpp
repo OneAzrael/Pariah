@@ -5,7 +5,7 @@ UInventoryComponent::UInventoryComponent()
 	PrimaryComponentTick.bCanEverTick = false;
 }
 
-bool UInventoryComponent::TryAddItem(FName ItemID, int32 Quantity, bool bIsStackable)
+bool UInventoryComponent::TryAddItem(FName ItemID, int32 Quantity, bool bIsStackable, UTexture2D* Icon)
 {
 	if (ItemID.IsNone() || Quantity <= 0) return false;
 	
@@ -23,7 +23,8 @@ bool UInventoryComponent::TryAddItem(FName ItemID, int32 Quantity, bool bIsStack
         FInventorySlot& NewSlot = Slots.AddDefaulted_GetRef();
 		NewSlot.ItemId = ItemID;
 		NewSlot.Quantity = Quantity;
-		NewSlot.bIsStackable = bIsStackable; // missing this
+		NewSlot.bIsStackable = bIsStackable;
+		NewSlot.ItemIcon = Icon;
 
 	
 	OnInventoryChanged.Broadcast();
@@ -88,3 +89,4 @@ void UInventoryComponent::BeginPlay()
 	Super::BeginPlay();
 	OnInventoryChanged.AddDynamic(this, &UInventoryComponent::DebugPrintInventory);
 }
+

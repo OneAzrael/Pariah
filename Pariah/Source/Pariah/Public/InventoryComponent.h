@@ -26,6 +26,9 @@ struct FInventorySlot
 
 	UPROPERTY(BlueprintReadOnly)
 	bool bIsStackable = false;
+	
+	UPROPERTY(BlueprintReadOnly)
+	TObjectPtr<UTexture2D> ItemIcon;
 };
 
 // Delegate
@@ -48,7 +51,7 @@ public:
 	
 	// Try to add an item where interactable is looking at
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
-	bool TryAddItem(FName ItemID, int32 Quantity = 1, bool bIsStackable = false); 
+	bool TryAddItem(FName ItemID, int32 Quantity = 1, bool bIsStackable = false, UTexture2D* Icon = nullptr); 
 	
 	// Same concept just removing an item
 	// Call this function when you want to destory an item

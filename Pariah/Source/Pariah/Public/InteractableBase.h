@@ -6,6 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "InteractableBase.generated.h"
 
+class UTexture2D;
+
 // Multicast + Blueprint-bindable event, passing the actor that interacted.
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnInteract, AActor*, Interactor);
 
@@ -34,6 +36,7 @@ public:
 	UPROPERTY(BlueprintAssignable, Category="Interaction")
 	FOnInteract OnInteract;
 
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Interaction")
 	FText InteractPrompt;
 
@@ -51,7 +54,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Pickup", meta=(EditCondition="bIsPickup"))
 	int32 Quantity = 1;
-
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Pickup", meta=(EditCondition="bIsPickup"))
+	TObjectPtr<UTexture2D> ItemIcon;
+	
 protected:
 	// Subclass-specific. Base does nothing; subclasses override.
 	virtual void HandleInteract(AActor* Interactor);
